@@ -1,7 +1,6 @@
 var config = require('./config');
 var modules = config.modules;
 var app = config.app;
-
 // using html views with hogan
 app.set('views',modules.path.join(__dirname,'views'));
 app.engine('html',modules.hogan);

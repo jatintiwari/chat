@@ -1,4 +1,4 @@
-var config = function{
+var config = function(){
   var _this = this;
   this.modules = require('./modules');
   this.params = require('./params')[(process.env.NODE_ENV || "development")];
@@ -8,4 +8,4 @@ var config = function{
   var passp0rt = require('../auth')(_this.modules.passport, _this.modules.FacebookStrategy, _this.params, models.User);
   return this;
 };
-module.exports = config;
+module.exports = config();
