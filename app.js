@@ -1,18 +1,19 @@
 var modules = require('./config/modules');
 var params = require('./config/params')[(process.env.NODE_ENV || "development")];
 var app = modules.express();
-var models = require('../models')(modules);
-var passp0rt = require('../auth')(modules.passport, modules.FacebookStrategy, params, models.User);
+var models = require('./models')(modules);
+var passport = require('./auth')(modules.passport, modules.FacebookStrategy, params, models.User);
+var rooms = [];
 // using html views with hogan
 app.set('views',modules.path.join(__dirname,'views'));
 app.engine('html',modules.hogan);
 app.set('view engine', 'html');
 app.use(modules.express.static(modules.path.join(__dirname, 'public')));
 app.use(session({
-  secret: config.params.secret,
+  secret: params.secret,
   resave: true,
   saveUninitialized: true,
-  store: new config.modules.connectMongo({
+  store: new modules.connectMongo({
     // url: config.params.db_url,
     mongoose_connection: modules.mongoose.connections[0],
     stringify: true
@@ -22,7 +23,7 @@ app.use(modules.passport.initialize());
 app.use(modules.passport.session());
 
 // init router after app session config
-require('../routes')(app, modules.express, modules.passport)
+require('./routes')(app, modules.express, modules.passport)
 // app.listen(config.params.port,function(){
 //   console.info(config.params);
 // });
@@ -30,6 +31,6 @@ require('../routes')(app, modules.express, modules.passport)
 var server =  modules.http.createServer(app);
 var io = modules.socketio.listen(server);
 
-server.listen(config.params.port,function(){
-  console.info(config.params);
+server.listen(params.port,function(){
+  console.info(params);
 });
