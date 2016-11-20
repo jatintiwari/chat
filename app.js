@@ -1,5 +1,5 @@
 var modules = require('./config/modules');
-var params = require('./config/params')[(process.env.NODE_ENV || "development")];
+var params = require('./config/params')[process.env.NODE_ENV || "development"];
 var app = modules.express();
 var models = require('./models')(modules);
 var passport = require('./auth')(modules.passport, modules.FacebookStrategy, params, models.User);
@@ -33,5 +33,5 @@ var server =  modules.http.createServer(app);
 var io = modules.socketio.listen(server);
 require('./socket')(io,rooms);
 server.listen(params.port,function(){
-  console.info(params, __dirname);
+  console.info(params, __dirname, app.get('env'));
 });

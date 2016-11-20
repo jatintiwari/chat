@@ -1,5 +1,5 @@
 var modules = function(){
-  var params = require('./params')[(process.env.NODE_ENV || "development")];
+  var params = require('./params')[process.env.NODE_ENV || "development"];
   this.express = require('express');
   this.path = require('path');
   this.http = require('http');
