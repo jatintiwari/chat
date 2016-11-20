@@ -1,6 +1,7 @@
 body{
   background-color: black;
   color:white;
+  font-family: 'Roboto', sans-serif;
 }
 a.facebook{
   color: white;
@@ -9,4 +10,11 @@ a.facebook{
   text-decoration: none;
   padding: 5px;
   border-radius: 3px;
+}
+.container{
+  padding: 0px 60px;
+}
+.chatbox{
+  background-color: wheat;
+  color: black;
 }

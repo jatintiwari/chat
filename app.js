@@ -1,6 +1,8 @@
-var config = require('./config');
-var modules = config.modules;
-var app = config.app;
+var modules = require('./config/modules');
+var params = require('./config/params')[(process.env.NODE_ENV || "development")];
+var app = modules.express();
+var models = require('../models')(modules);
+var passp0rt = require('../auth')(modules.passport, modules.FacebookStrategy, params, models.User);
 // using html views with hogan
 app.set('views',modules.path.join(__dirname,'views'));
 app.engine('html',modules.hogan);
@@ -20,8 +22,14 @@ app.use(modules.passport.initialize());
 app.use(modules.passport.session());
 
 // init router after app session config
-config.router.init();
-app.listen(config.params.port,function(){
+require('../routes')(app, modules.express, modules.passport)
+// app.listen(config.params.port,function(){
+//   console.info(config.params);
+// });
+
+var server =  modules.http.createServer(app);
+var io = modules.socketio.listen(server);
+
+server.listen(config.params.port,function(){
   console.info(config.params);
 });
-
