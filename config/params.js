@@ -13,12 +13,11 @@ module.exports = {
   "production" : {
     "port": process.env.PORT || 5000,
     "db_url": process.env.DB_URL,
-    "secret": "thisisasecret"
-  },
+    "secret": "thisisasecret",
   "fb":{
     "app_id": "1761542434088170",
     "app_secret": "c1e3f7c9751b94a639ee77b85cec1430",
-    "callbackUrl": "http://localhost:5000/auth/facebook/callback"
+    "callbackUrl": process.env.CALLBACK_URL,
+    "host": process.env.HOST,
   },
-  "host": process.env.HOST,
 }
