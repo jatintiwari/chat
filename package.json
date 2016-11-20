@@ -1,0 +1,33 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "chat client using nodejs and socket.io",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jatintiwari/chat.git"
+  },
+  "keywords": [
+    "nodejs",
+    "sockitio",
+    "jatintiwari"
+  ],
+  "author": "Jatin Tiwari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jatintiwari/chat/issues"
+  },
+  "dependencies": {
+    "bson": "^0.5.7",
+    "connect-mongo": "^0.4.1",
+    "express": "4.2.0",
+    "express-session": "^1.2.0",
+    "hogan-express": "0.5.2",
+    "mongoose": "^4.6.8",
+    "passport": "^0.2.0",
+    "passport-facebook": "^2.1.1"
+  }
+}
