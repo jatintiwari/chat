@@ -1,0 +1,34 @@
+<html ng-app="chat">
+<head>
+  <link rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body class="chat" ng-controller="RootController">
+  <div class="container">
+    <div class="chatbox">
+      <h1>{{2+2}}</h1>
+    </div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <script>
+    angular.element(document.documentElement).ready(function(){
+      var host = '{{params.host}}';
+      var socket = io.connect(host+'greetings')
+      socket.on('connect',function(){
+        console.log('connected!');
+      });
+    })
+
+    // $.ajax({
+    //   url: '/config',
+    //   success: function(config){
+    //     setTimeout(function(){
+    //     },100);
+    //   }
+    // })
+  </script>
+  <script src="index.js"></script>
+  <script src="scripts/root.js"></script>
+</body>
+</html>

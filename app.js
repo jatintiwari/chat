@@ -5,10 +5,11 @@ var models = require('./models')(modules);
 var passport = require('./auth')(modules.passport, modules.FacebookStrategy, params, models.User);
 var rooms = [];
 // using html views with hogan
-app.set('views',modules.path.join(__dirname,'views'));
+app.set('views',modules.path.join(__dirname,'app/views'));
 app.engine('html',modules.hogan);
 app.set('view engine', 'html');
 app.use(modules.express.static(modules.path.join(__dirname, 'public')));
+app.use(modules.express.static(modules.path.join(__dirname, 'app')));
 app.use(session({
   secret: params.secret,
   resave: true,
@@ -23,14 +24,14 @@ app.use(modules.passport.initialize());
 app.use(modules.passport.session());
 
 // init router after app session config
-require('./routes')(app, modules.express, modules.passport)
+require('./routes')(app, modules.express, modules.passport, params, path)
 // app.listen(config.params.port,function(){
 //   console.info(config.params);
 // });
 
 var server =  modules.http.createServer(app);
 var io = modules.socketio.listen(server);
-
+require('./socket')(io,rooms);
 server.listen(params.port,function(){
-  console.info(params);
+  console.info(params, __dirname);
 });

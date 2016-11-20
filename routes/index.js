@@ -1,4 +1,4 @@
-module.exports = function(app, express, passport){
+module.exports = function(app, express, passport, params){
   var router = express.Router();
 
   router.get('/',function(req,res,next){
@@ -17,10 +17,14 @@ module.exports = function(app, express, passport){
   router.get('/logout',function(req, res, next){
     req.logout();
     res.redirect('/');
-  })
+  });
+
+  router.get('/config',function(req, res, next){
+    res.json(req.user);
+  });
 
   router.get('/chat',isAuthenticated,function(req, res, next){
-    res.render('chat', { user: req.user });
+    res.render('chat', { params: params, user: req.user });
   });
    app.use('/',router);
  }
