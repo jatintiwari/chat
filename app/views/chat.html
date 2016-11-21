@@ -1,34 +1,22 @@
 <html ng-app="chat">
 <head>
+  <base href="/">
   <link rel="stylesheet" href="css/main.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 <body class="chat" ng-controller="RootController">
   <div class="container">
     <div class="chatbox">
-      <h1>{{2+2}}</h1>
+      <ui-view></ui-view>
     </div>
   </div>
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-  <script>
-    angular.element(document.documentElement).ready(function(){
-      var host = '{{params.host}}';
-      var socket = io.connect(host+'greetings')
-      socket.on('connect',function(){
-        console.log('connected!');
-      });
-    })
-
-    // $.ajax({
-    //   url: '/config',
-    //   success: function(config){
-    //     setTimeout(function(){
-    //     },100);
-    //   }
-    // })
-  </script>
+  <script src="socket.io/socket.io.js"></script>
+  <script src="angular/angular.min.js"></script>
+  <script src="angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="angular-socket-io/socket.min.js"></script>
   <script src="index.js"></script>
-  <script src="scripts/root.js"></script>
+  <script src="scripts/config/socketFactory.js"></script>
+  <script src="scripts/controllers/root.js"></script>
+  <script src="scripts/components/mainframe/index.js"></script>
 </body>
 </html>

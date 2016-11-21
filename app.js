@@ -10,6 +10,7 @@ app.engine('html',modules.hogan);
 app.set('view engine', 'html');
 app.use(modules.express.static(modules.path.join(__dirname, 'public')));
 app.use(modules.express.static(modules.path.join(__dirname, 'app')));
+app.use(modules.express.static(modules.path.join(__dirname, 'bower_components')));
 app.use(session({
   secret: params.secret,
   resave: true,
