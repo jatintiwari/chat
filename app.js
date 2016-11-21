@@ -25,7 +25,7 @@ app.use(modules.passport.initialize());
 app.use(modules.passport.session());
 
 // init router after app session config
-require('./routes')(app, modules.express, modules.passport, params, path)
+require('./routes')(app, modules.express, modules.passport, params, models)
 // app.listen(config.params.port,function(){
 //   console.info(config.params);
 // });

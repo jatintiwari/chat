@@ -1,4 +1,4 @@
-module.exports = function(app, express, passport, params){
+module.exports = function(app, express, passport, params, models){
   var router = express.Router();
 
   router.get('/',function(req,res,next){
@@ -26,5 +26,14 @@ module.exports = function(app, express, passport, params){
   router.get('/chat',isAuthenticated,function(req, res, next){
     res.render('chat', { params: params, user: req.user });
   });
-   app.use('/',router);
+
+  router.get('/api/users',isAuthenticated,function(req, res, next){
+    this.User = models.User;
+    this.User.find({}, function(err, users) {
+      users = users.filter(function(user){ return user._id != req.user._id });
+      res.json(users);
+    });
+  });
+
+  app.use('/',router);
  }

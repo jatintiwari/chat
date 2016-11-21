@@ -1,7 +1,11 @@
 body{
   background-color: black;
+  position: relative;
   color:white;
   font-family: 'Roboto', sans-serif;
+}
+body.chat{
+  background-color: #dfdfdf;
 }
 a.facebook{
   color: white;
@@ -14,7 +18,36 @@ a.facebook{
 .container{
   padding: 0px 60px;
 }
+.chatbox-container{
+  position: relative;
+  box-shadow: 5px 5px 15px grey;
+  border: 60px solid #009688;
+  border-radius: 50px;
+}
 .chatbox{
-  background-color: wheat;
+  background-color: white;
+  position: relative;
+  padding: 20px;
   color: black;
+}
+.users-list-container{
+  display: inline-block;
+  padding: 10px;
+  width: 20%;
+  max-height: 450px;
+  overflow: scroll;
+}
+.user{
+  background-color: #dfdfdf;
+  padding: 10px;
+  margin-bottom: 5px;
+  cursor: pointer
+}
+.user.active{
+  background-color: rgba(0,68,152,0.4);
+}
+.chat-messages-container{
+  display: inline-block;
+  padding: 10px;
+  width:75%;
 }

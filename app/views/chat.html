@@ -1,14 +1,13 @@
 <html ng-app="chat">
 <head>
   <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <link rel="stylesheet" href="css/main.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 <body class="chat" ng-controller="RootController">
   <div class="container">
-    <div class="chatbox">
-      <ui-view></ui-view>
-    </div>
+    <ui-view></ui-view>
   </div>
   <script src="socket.io/socket.io.js"></script>
   <script src="angular/angular.min.js"></script>
@@ -17,6 +16,6 @@
   <script src="index.js"></script>
   <script src="scripts/config/socketFactory.js"></script>
   <script src="scripts/controllers/root.js"></script>
-  <script src="scripts/components/mainframe/index.js"></script>
+  <script src="scripts/components/chatbox/index.js"></script>
 </body>
 </html>
