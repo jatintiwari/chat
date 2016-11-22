@@ -15,20 +15,34 @@ a.facebook{
   padding: 10px 15px;
   border-radius: 3px;
 }
+a.logout{
+ color: white;
+  text-transform: uppercase;
+  background-color: #4267C2;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  float:right;
+  font-size: 12px;
+}
 .container{
   padding: 0px 60px;
 }
 .chatbox-container{
   position: relative;
   box-shadow: 5px 5px 15px grey;
-  border: 60px solid #009688;
-  border-radius: 50px;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #009688;
 }
 .chatbox{
   background-color: white;
   position: relative;
-  padding: 20px;
+  border-radius: 10px;
   color: black;
+}
+.chat-ctas{
+  padding: 10px;
 }
 .users-list-container{
   display: inline-block;

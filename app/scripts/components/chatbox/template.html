@@ -1,10 +1,20 @@
 <div class="chatbox-container">
   <div class="chatbox">
+    <div class="chat-ctas">
+      <img ng-src="{{user.profilePic}}" alt="{{user.fullname}}" height="50" width="50"
+      style="border-radius: 50%; display: inline-block;">
+      <div style="padding: 10px 0px 0 5px; vertical-align: top; display: inline-block;text-transform: uppercase;">
+        <span>{{user.fullname}}</span>
+      </div>
+      <a href="/logout" class="logout" target="_self">LOGOUT</a>
+    </div>
+    <hr>
     <div class="users-list-container">
         <div ng-repeat="user in users" class="user" ng-click="$ctrl.getChat(user)" ng-class="{'active': $ctrl.activeChatId == user.profileID}">
           <img ng-src="{{user.profilePic}}" alt="{{user.fullname}}" height="50" width="50"
            style="border-radius: 50%; display: inline-block;">
-           <div style="padding: 10px 5px 0 5px; vertical-align: top; display: inline-block;text-transform: uppercase;">{{user.fullname}}</div>
+           <div style="padding: 10px 0px 0 5px; vertical-align: top; display: inline-block;text-transform: uppercase;
+           width: 112px;">{{user.fullname}}</div>
         </div>
     </div>
     <div class="chat-messages-container">

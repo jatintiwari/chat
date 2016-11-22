@@ -28,12 +28,14 @@ module.exports = function(app, express, passport, params, models){
   });
 
   router.get('/api/users',isAuthenticated,function(req, res, next){
-    this.User = models.User;
-    this.User.find({}, function(err, users) {
-      console.log(req.user);
+    models.User.find({}, function(err, users) {
       u = users.filter(function(user){ return user.profileID != req.user.profileID });
       res.json(u);
     });
+  });
+
+  router.get('/api/user',isAuthenticated,function(req, res){
+    res.json(req.user);
   });
 
   app.use('/',router);

@@ -32,7 +32,7 @@ require('./routes')(app, modules.express, modules.passport, params, models)
 
 var server =  modules.http.createServer(app);
 var io = modules.socketio.listen(server);
-require('./socket')(io,rooms);
+require('./socket')(io,models);
 server.listen(params.port,function(){
   console.info(params, __dirname, app.get('env'));
 });

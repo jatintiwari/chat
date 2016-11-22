@@ -3,7 +3,18 @@ angular.module('chat').component('chatbox',{
   controller: function($scope, socket, $http){
     var self = this;
     socket.on('connect',function(e,data){
+      init();
+    });
 
+    self.getCurrentUser = function(){
+      $http.get('/api/user').then(function(response){
+        $scope.user = response.data;
+      });
+    };
+
+    socket.on('user:new',function(e){
+      console.log('new users');
+      self.getUsers();
     });
 
     self.getChat = function(user){
@@ -15,10 +26,9 @@ angular.module('chat').component('chatbox',{
         $scope.users = response.data;
       });
     };
-
     var init = function(){
       self.getUsers();
+      self.getCurrentUser();
     };
-    init();
   }
 })

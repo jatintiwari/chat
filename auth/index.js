@@ -20,7 +20,6 @@ module.exports = function(passport, FacebookStrategy, params, User){
         done(null,result)
       }else{
         // not found, create one
-        console.log(profile);
         var newUser = new User({profileID: profile.id, fullname: profile.displayName, profilePic: profile.photos[0].value || ""});
         newUser.save(function(err){
           done(null,newUser)

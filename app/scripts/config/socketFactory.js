@@ -1,4 +1,4 @@
 angular.module('chat').factory('socket',function(socketFactory){
-  var myIoSocket = io.connect('/greetings');
+  var myIoSocket = io.connect('/chat');
   return socketFactory({ioSocket: myIoSocket});
 });

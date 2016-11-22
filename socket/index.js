@@ -1,5 +1,6 @@
-module.exports = function(io,rooms){
-  var broadcast = io.of('/greetings').on('connection',function(sock){
-    console.log("Connected with the client ");
+module.exports = function(io,models){
+  var broadcast = io.of('/chat').on('connection',function(socket){
+    console.log('Connected');
+    socket.broadcast.emit('user:new');
   })
 }
