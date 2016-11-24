@@ -52,6 +52,9 @@ a.send{
 .chat-ctas{
   padding: 10px;
 }
+.chat-ctas.user{
+  background-color: white;
+}
 .users-list-container{
   display: inline-block;
   padding: 10px;
@@ -69,6 +72,17 @@ a.send{
 }
 .user.active{
   background-color: rgba(0,68,152,0.4);
+}
+.user > .img-circle{
+  border-radius: 50%;
+  display: inline-block;
+}
+.user > .username{
+  padding: 10px 0px 0 5px;
+  vertical-align: top;
+  display: inline-block;
+  text-transform: uppercase;
+  width: 112px;
 }
 .chat-messages-container{
   display: inline-block;
