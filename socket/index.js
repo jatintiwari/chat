@@ -10,7 +10,6 @@ module.exports = function(io,models){
 
     // send a message
     socket.on('message:send',function(message){
-      console.log(message);
       var msg = new models.Message({to: message.to, from: message.from, date: new Date(),text: message.text });
       msg.save(function(err){
         console.log('sending message to '+message.to+' from '+message.from);

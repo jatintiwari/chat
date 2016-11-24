@@ -24,8 +24,8 @@ angular.module('chat').component('chatbox',{
       setTimeout(scrollBottomOfChatWindow,100);
     });
 
-    socket.on('user:new',function(e){
-      self.getUsers();
+    socket.on('user:new',function(newUserId){
+      self.getUsers(newUserId);
     });
 
     self.connected = function(){
@@ -61,6 +61,7 @@ angular.module('chat').component('chatbox',{
     self.sendMessage = function(){
       if(self.message.text === null)
         return;
+      self.message.date = new Date();
       socket.emit('message:send',self.message);
       var msg = angular.extend({},self.message);
       $scope.messages.push(msg);
@@ -73,6 +74,7 @@ angular.module('chat').component('chatbox',{
       self.message = {
         text: null,
         to: null,
+        date: null,
         from: self.current_user.profileID
       };
       self.getUsers();
