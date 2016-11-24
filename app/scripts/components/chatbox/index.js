@@ -18,7 +18,6 @@ angular.module('chat').component('chatbox',{
       console.error("Some error in connecting, please refresh");
     });
 
-
     socket.on('message:new',function(message){
       $scope.messages.push(message);
       setTimeout(scrollBottomOfChatWindow,100);

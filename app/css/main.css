@@ -1,7 +1,6 @@
 body{
   background-color: black;
   position: relative;
-
   color:white;
   font-family: 'Roboto', sans-serif;
 }
@@ -31,6 +30,9 @@ a.send{
   padding: 5px 10px;
   font-size: 20px;
   vertical-align: top;
+}
+input{
+  font-size: 15px;
 }
 .container{
   padding: 0px 60px;
@@ -81,6 +83,7 @@ a.send{
   padding: 10px 0px 0 5px;
   vertical-align: top;
   display: inline-block;
+  font-size: 12px;
   text-transform: uppercase;
   width: 112px;
 }
