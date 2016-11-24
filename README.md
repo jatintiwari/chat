@@ -24,7 +24,7 @@ chat client using node and socket.io
 
 3. SOCKET.io: nicely integrated with Node
 
-4. Inline CSS and Extracting a few components in main.css :
+4. Inline CSS and Extracting a few components in main.css : tried reusing as much as i could a keep the dom clean. still some css is there in it.
 
 
 #Other enhancements that can be done:
