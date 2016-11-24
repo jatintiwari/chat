@@ -2,7 +2,8 @@
 chat client using node and socket.io
 
 #Prerequisites
-1. auth via facebook
+1. "npm install" && "bower install"
+2. run "node app.js" in your terminal
 
 #Steps:
 1. 2 Successful auth via facebook (2 different users)
