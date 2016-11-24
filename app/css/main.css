@@ -7,23 +7,29 @@ body{
 body.chat{
   background-color: #dfdfdf;
 }
-a.facebook{
+a{
+  text-decoration: none;
   color: white;
   text-transform: uppercase;
-  background-color: #4267B2;
-  text-decoration: none;
-  padding: 10px 15px;
   border-radius: 3px;
 }
+a.facebook{
+  background-color: #4267B2;
+  padding: 10px 15px;
+}
 a.logout{
- color: white;
-  text-transform: uppercase;
   background-color: #4267C2;
   text-decoration: none;
   padding: 5px 10px;
-  border-radius: 3px;
   float:right;
   font-size: 12px;
+}
+a.send{
+  background-color: #4ac242;
+  text-decoration: none;
+  padding: 5px 10px;
+  font-size: 20px;
+  vertical-align: top;
 }
 .container{
   padding: 0px 60px;
@@ -40,6 +46,7 @@ a.logout{
   position: relative;
   border-radius: 10px;
   color: black;
+  height: 500px;
 }
 .chat-ctas{
   padding: 10px;
@@ -48,8 +55,10 @@ a.logout{
   display: inline-block;
   padding: 10px;
   width: 20%;
-  max-height: 450px;
+  position: relative;
+  height: 375px;
   overflow: scroll;
+  border-right: 1px solid #eee;
 }
 .user{
   background-color: #dfdfdf;
@@ -62,6 +71,28 @@ a.logout{
 }
 .chat-messages-container{
   display: inline-block;
-  padding: 10px;
+  position: relative;
   width:75%;
+  height: 375px;
+  vertical-align: top;
+}
+.chat-messages{
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 5px;
+  overflow: scroll;
+  height: 80%;
+}
+.chat-message{
+  background-color:white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+.loader{
+  left: 0;
+  right: 0;
+  position: absolute;
+  text-align: center;
 }

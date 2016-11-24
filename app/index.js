@@ -5,7 +5,7 @@ angular.module('chat',[
   $stateProvider.state({
     name: 'chat',
     url:'/chat',
-    component:"chatbox",
+    component:"chatbox"
   });
   $locationProvider.html5Mode(true);
 })

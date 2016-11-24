@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="css/main.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
-<body class="chat" ng-controller="RootController">
+<body class="chat" ng-controller="RootController" ng-init="current_user = {{user}}">
   <div class="container">
     <ui-view></ui-view>
   </div>
